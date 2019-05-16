@@ -1,0 +1,1954 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SKG</name>
+    </assembly>
+    <members>
+        <member name="T:SKG.BLL.GenericSvc`2">
+            <summary>
+            Generic service
+            </summary>
+            <typeparam name="D">Data access layer class type</typeparam>
+            <typeparam name="T">Model class type</typeparam>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Create(`1)">
+            <summary>
+            Create the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Create(System.Collections.Generic.List{`1})">
+            <summary>
+            Create the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Read(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            Read by
+            </summary>
+            <param name="p">Predicate</param>
+            <returns>Return query data</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Read(SKG.Req.PagingReq)">
+            <summary>
+            Read by
+            </summary>
+            <param name="req">Paging request</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Read(System.Int32)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Read(System.String)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Update(`1)">
+            <summary>
+            Update the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Update(System.Collections.Generic.List{`1})">
+            <summary>
+            Update the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Delete(System.Int32)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Delete(System.String)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Restore(System.Int32)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Restore(System.String)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.Remove(System.Int32)">
+            <summary>
+            Remove and not restore
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Number of affect</returns>
+        </member>
+        <member name="P:SKG.BLL.GenericSvc`2.All">
+            <summary>
+            Return query all data
+            </summary>
+        </member>
+        <member name="M:SKG.BLL.GenericSvc`2.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="F:SKG.BLL.GenericSvc`2._rep">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="T:SKG.BLL.IGenericSvc`1">
+            <summary>
+            Interface generic service
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Create(`0)">
+            <summary>
+            Create the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Create(System.Collections.Generic.List{`0})">
+            <summary>
+            Create the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Read(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Read by
+            </summary>
+            <param name="p">Predicate</param>
+            <returns>Return query data</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Read(SKG.Req.PagingReq)">
+            <summary>
+            Read by
+            </summary>
+            <param name="req">Paging request</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Read(System.Int32)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Read(System.String)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Update(`0)">
+            <summary>
+            Update the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Update(System.Collections.Generic.List{`0})">
+            <summary>
+            Update the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Delete(System.Int32)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Delete(System.String)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Restore(System.Int32)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Restore(System.String)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.BLL.IGenericSvc`1.Remove(System.Int32)">
+            <summary>
+            Remove and not restore
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Number of affect</returns>
+        </member>
+        <member name="P:SKG.BLL.IGenericSvc`1.All">
+            <summary>
+            Return query all data
+            </summary>
+        </member>
+        <member name="T:SKG.DAL.GenericRep`2">
+            <summary>
+            Generic repository
+            </summary>
+            <typeparam name="C">Database context class type</typeparam>
+            <typeparam name="T">Model class type</typeparam>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Create(`1)">
+            <summary>
+            Create the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Create(System.Collections.Generic.List{`1})">
+            <summary>
+            Create the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Read(System.Linq.Expressions.Expression{System.Func{`1,System.Boolean}})">
+            <summary>
+            Read by
+            </summary>
+            <param name="p">Predicate</param>
+            <returns>Return query data</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Read(System.Int32)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Read(System.String)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Update(`1)">
+            <summary>
+            Update the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Update(System.Collections.Generic.List{`1})">
+            <summary>
+            Update the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Delete(System.Int32)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Delete(System.String)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Restore(System.Int32)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Restore(System.String)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Remove(System.Int32)">
+            <summary>
+            Remove and not restore
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Number of affect</returns>
+        </member>
+        <member name="P:SKG.DAL.GenericRep`2.All">
+            <summary>
+            Return query all data
+            </summary>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Update(`1,`1)">
+            <summary>
+            Update the model
+            </summary>
+            <param name="old">The old model</param>
+            <param name="new">The new model</param>
+        </member>
+        <member name="M:SKG.DAL.GenericRep`2.Delete(`1)">
+            <summary>
+            Delete the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="P:SKG.DAL.GenericRep`2.Context">
+            <summary>
+            The database context
+            </summary>
+        </member>
+        <member name="F:SKG.DAL.GenericRep`2._context">
+            <summary>
+            The entities
+            </summary>
+        </member>
+        <member name="T:SKG.DAL.IGenericRep`1">
+            <summary>
+            Interface generic repository
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Create(`0)">
+            <summary>
+            Create the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Create(System.Collections.Generic.List{`0})">
+            <summary>
+            Create the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Read(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Read by
+            </summary>
+            <param name="p">Predicate</param>
+            <returns>Return query data</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Read(System.Int32)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Read(System.String)">
+            <summary>
+            Read single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the object</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Update(`0)">
+            <summary>
+            Update the model
+            </summary>
+            <param name="m">The model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Update(System.Collections.Generic.List{`0})">
+            <summary>
+            Update the models
+            </summary>
+            <param name="l">List model</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Delete(System.Int32)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Delete(System.String)">
+            <summary>
+            Delete single object
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Restore(System.Int32)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Restore(System.String)">
+            <summary>
+            Restore the model
+            </summary>
+            <param name="code">Secondary key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.DAL.IGenericRep`1.Remove(System.Int32)">
+            <summary>
+            Remove and not restore
+            </summary>
+            <param name="id">Primary key</param>
+            <returns>Number of affect</returns>
+        </member>
+        <member name="P:SKG.DAL.IGenericRep`1.All">
+            <summary>
+            Return query all data
+            </summary>
+        </member>
+        <member name="T:SKG.DAL.Models.BaseModel">
+            <summary>
+            Base model
+            </summary>
+        </member>
+        <member name="M:SKG.DAL.Models.BaseModel.#ctor(System.Int32)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="id">ID</param>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.Status">
+            <summary>
+            Status
+            </summary>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.CreatedBy">
+            <summary>
+            Created by
+            </summary>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.CreatedOn">
+            <summary>
+            Created on
+            </summary>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.ModifiedBy">
+            <summary>
+            Modified by
+            </summary>
+        </member>
+        <member name="P:SKG.DAL.Models.BaseModel.ModifiedOn">
+            <summary>
+            Modified on
+            </summary>
+        </member>
+        <member name="T:SKG.Dto.SortDto">
+            <summary>
+            Sort data transfer object
+            </summary>
+        </member>
+        <member name="M:SKG.Dto.SortDto.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Dto.SortDto.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="field">Field</param>
+        </member>
+        <member name="M:SKG.Dto.SortDto.#ctor(System.String,System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="field">Field</param>
+            <param name="direction">Direction</param>
+        </member>
+        <member name="P:SKG.Dto.SortDto.Field">
+            <summary>
+            Field
+            </summary>
+        </member>
+        <member name="P:SKG.Dto.SortDto.Direction">
+            <summary>
+            Direction
+            </summary>
+        </member>
+        <member name="F:SKG.Dto.SortDto.direction">
+            <summary>
+            Direction
+            </summary>
+        </member>
+        <member name="T:SKG.Ext.ByteExt">
+            <summary>
+            Extend for the byte
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.ByteExt.To64(System.Byte[])">
+            <summary>
+            To base64 string
+            </summary>
+            <param name="o">Data</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="T:SKG.Ext.EnumExt">
+            <summary>
+            Extend for the Enum
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.EnumExt.ToDescription(System.Enum)">
+            <summary>
+            Get enum description
+            </summary>
+            <param name="value">Value of enum</param>
+            <returns>Return the description</returns>
+        </member>
+        <member name="T:SKG.Ext.FileExt">
+            <summary>
+            Extend for the file
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.FileExt.GetFile(System.String)">
+            <summary>
+            Convert file to array byte
+            </summary>
+            <param name="s">Full path file name</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.Ext.FileExt.GetFile(System.String,System.String)">
+            <summary>
+            Convert file to array byte
+            </summary>
+            <param name="s">Full path file name without extension</param>
+            <param name="e">File extension with dot</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="T:SKG.Ext.IntExt">
+            <summary>
+            Extend for the int
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.IntExt.ToStrInt32(System.Nullable{System.Int32})">
+            <summary>
+            Converts the specified nullable int representation of a number to an equivalent string 32-bit signed integer
+            </summary>
+            <param name="i">Nullable number</param>
+            <returns>Return the string number</returns>
+        </member>
+        <member name="T:SKG.Ext.ListExt">
+            <summary>
+            Extend for the List
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.ListExt.ToDataTable``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Convert from IEnumerable (LINQ, List object) to DataTable
+            </summary>
+            <typeparam name="T">Class</typeparam>
+            <param name="d">Data</param>
+            <param name="s">Table name</param>
+            <returns>Return a DataTable</returns>
+        </member>
+        <member name="M:SKG.Ext.ListExt.ToCsv``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            Create CSV file from list
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="list">Data list</param>
+            <param name="file">Full path file name</param>
+            <returns>Return status can create or not</returns>
+        </member>
+        <member name="M:SKG.Ext.ListExt.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Get And expression
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+            <param name="o">Expression</param>
+            <param name="e">Or expression</param>
+            <returns>Return the Or expression</returns>
+        </member>
+        <member name="M:SKG.Ext.ListExt.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Get And expression
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+            <param name="o">Expression</param>
+            <param name="e">And expression</param>
+            <returns>Return the And expression</returns>
+        </member>
+        <member name="M:SKG.Ext.ListExt.Sort``1(System.Linq.IOrderedQueryable{``0},System.Collections.Generic.List{SKG.Dto.SortDto})">
+            <summary>
+            Sort query
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+            <param name="o">Query</param>
+            <param name="sorts">List field sort</param>
+            <returns>Return the sort query</returns>
+        </member>
+        <member name="M:SKG.Ext.ListExt.Replace(System.Object,System.Object,System.Object)">
+            <summary>
+            Replace object support Or and And method
+            </summary>
+            <param name="o">Current instance object</param>
+            <param name="old">Old object</param>
+            <param name="new">New object</param>
+        </member>
+        <member name="T:SKG.Ext.ObjectExt">
+            <summary>
+            Extend for the object
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.HasProperty(System.Object,System.String)">
+            <summary>
+            Check a property exist in object
+            </summary>
+            <param name="o">Object</param>
+            <param name="p">Property name</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Get value if a property exist in object
+            </summary>
+            <param name="o">Object</param>
+            <param name="p">Property name</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            Set value if a property exist in object
+            </summary>
+            <param name="o">Object</param>
+            <param name="p">Property name</param>
+            <param name="value">Value need to set</param>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.Same(System.Object,System.Object)">
+            <summary>
+            Compare all properties data from source to destination
+            </summary>
+            <param name="fr">Source</param>
+            <param name="to">Destination</param>
+            <returns>Return true if it is same, else false</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.IsNumeric(System.Object)">
+            <summary>
+            Check is numeric
+            </summary>
+            <param name="o">Object need to check</param>
+            <returns>Return is is numeric or not</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToInt32(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent 32-bit signed integer
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToInt32Null(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent 32-bit signed integer
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToInt64(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent 64-bit signed integer
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToInt64Null(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent 64-bit signed integer
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToFloat(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent float number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToFloatNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent float number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDouble(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent double number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDoubleNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent double number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDecimal(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent decimal number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDecimalNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a number to an equivalent decimal number
+            </summary>
+            <param name="o">String number</param>
+            <returns>Return the number (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToBool(System.Object)">
+            <summary>
+            Converts the specified object representation of a boolean to an equivalent boolean
+            </summary>
+            <param name="o">String boolean</param>
+            <returns>Return the boolean</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToBoolNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a boolean to an equivalent boolean
+            </summary>
+            <param name="o">String boolean</param>
+            <returns>Return the boolean (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDateTime(System.Object)">
+            <summary>
+            Converts the specified object representation of a DateTime to an equivalent DateTime
+            </summary>
+            <param name="o">String DateTime</param>
+            <returns>Return the DateTime</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToDateTimeNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a DateTime to an equivalent DateTime
+            </summary>
+            <param name="o">String DateTime</param>
+            <returns>Return the DateTime (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToGuid(System.Object)">
+            <summary>
+            Converts the specified object representation of a Guid to an equivalent Guid
+            </summary>
+            <param name="o">String Guid</param>
+            <returns>Return the Guid</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToGuidNull(System.Object)">
+            <summary>
+            Converts the specified object representation of a Guid to an equivalent Guid
+            </summary>
+            <param name="o">String Guid</param>
+            <returns>Return the Guid (nullable)</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToStr(System.Object,SKG.ZEnum.Format)">
+            <summary>
+            Convert the object to string with format
+            </summary>
+            <param name="o">Object</param>
+            <param name="f">Format type</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.ObjectExt.ToStr(System.Object)">
+            <summary>
+            Convert the object to string
+            </summary>
+            <param name="o">Object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="T:SKG.Ext.StringExt">
+            <summary>
+            Extend for the string
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.StringExt.Fr64(System.String)">
+            <summary>
+            From base64 string
+            </summary>
+            <param name="o">Data</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToUpperFirst(System.String)">
+            <summary>
+            Return a copy of this string with first letter converted to uppercase
+            </summary>
+            <param name="s">String</param>
+            <returns>Return uppercase first letter</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToUpperWords(System.String)">
+            <summary>
+            Return a copy of this string with first letter of each word converted to uppercase
+            </summary>
+            <param name="s">String</param>
+            <returns>Return uppercase first letter of any words</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToAddSpace(System.String)">
+            <summary>
+            Add one space AbCd to Ab Cd
+            </summary>
+            <param name="s">Input string</param>
+            <returns>Return string with space</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.Standardize(System.String)">
+            <summary>
+            Standardize string
+            </summary>
+            <param name="s">A string</param>
+            <returns>Return the standardized string</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.RemoveLast(System.String,System.String,System.String)">
+            <summary>
+            Remove string at last
+            </summary>
+            <param name="s">String data</param>
+            <param name="remove">String need to remove</param>
+            <param name="replace">String will replace</param>
+            <returns>Return the string removed</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToStrDefault(System.String,System.String)">
+            <summary>
+            Get default value if input null or empty
+            </summary>
+            <param name="s"></param>
+            <param name="d">Default value</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToListInt32(System.String,System.Char)">
+            <summary>
+            Convert a string number separation with separation
+            </summary>
+            <param name="s">String number separation</param>
+            <param name="separation">Separation (default is semicolon)</param>
+            <returns>Return list int</returns>
+        </member>
+        <member name="M:SKG.Ext.StringExt.ToEnum``1(System.String,``0)">
+            <summary>
+            Convert a string value to enum value
+            </summary>
+            <typeparam name="T">Enum type</typeparam>
+            <param name="value">Value need to convert</param>
+            <param name="default">Default value</param>
+            <returns>Return the enum value</returns>
+        </member>
+        <member name="T:SKG.Ext.TimeExt">
+            <summary>
+            Extend for the DateTime
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrDate(System.DateTime)">
+            <summary>
+            Convert DateTime to string with format dd-MMM-yyyy
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrTime(System.DateTime)">
+            <summary>
+            Convert DateTime to string with format hh:mm tt
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrTime(System.Nullable{System.DateTime})">
+            <summary>
+            Convert DateTime to string with format hh:mm tt
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrDateTime(System.DateTime)">
+            <summary>
+            Convert DateTime to string with format dd-MMM-yyyy hh:mm tt
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrDateTime(System.Nullable{System.DateTime})">
+            <summary>
+            Convert DateTime to string with format dd-MMM-yyyy hh:mm tt
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrDate(System.Nullable{System.DateTime})">
+            <summary>
+            Convert DateTime to string with format dd-MMM-yyyy
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrSqlDateTime(System.DateTime)">
+            <summary>
+            Convert DateTime to string with format yyyy-MM-dd HH:mm:ss
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrSqlDateTime(System.Nullable{System.DateTime})">
+            <summary>
+            Convert DateTime to string with format yyyy-MM-dd HH:mm:ss
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrIsoDateTime(System.DateTime)">
+            <summary>
+            Convert DateTime to string with format yyyy/MM/dd HH:mm:ss
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="M:SKG.Ext.TimeExt.ToStrIsoDateTime(System.Nullable{System.DateTime})">
+            <summary>
+            Convert DateTime to string with format yyyy/MM/dd HH:mm:ss
+            </summary>
+            <param name="d">DateTime object</param>
+            <returns>Return the string</returns>
+        </member>
+        <member name="T:SKG.Ext.TypeExt">
+            <summary>
+            Extend for the type
+            </summary>
+        </member>
+        <member name="M:SKG.Ext.TypeExt.Kopy``1(``0,``0)">
+            <summary>
+            Copy all properties data (skip null properties) from source to destination
+            </summary>
+            <typeparam name="T">The class type</typeparam>
+            <param name="fr">Source</param>
+            <param name="to">Destination</param>
+        </member>
+        <member name="M:SKG.Ext.TypeExt.Differ``1(``0,``0)">
+            <summary>
+            Compare all properties data (skip null properties) from source to destination
+            </summary>
+            <typeparam name="T">The class type</typeparam>
+            <param name="fr">Source</param>
+            <param name="to">Destination</param>
+            <returns>Return true if it is difference, else false</returns>
+        </member>
+        <member name="T:SKG.Req.BaseReq`1">
+            <summary>
+            Base request
+            </summary>
+            <typeparam name="T">Model class type</typeparam>
+        </member>
+        <member name="M:SKG.Req.BaseReq`1.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Req.BaseReq`1.#ctor(System.Int32)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="id">ID</param>
+        </member>
+        <member name="M:SKG.Req.BaseReq`1.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="keyword">Keyword</param>
+        </member>
+        <member name="M:SKG.Req.BaseReq`1.ToModel(System.Nullable{System.Int32})">
+            <summary>
+            Convert the request to the model
+            </summary>
+            <param name="createdBy">Created by</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="P:SKG.Req.BaseReq`1.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SKG.Req.BaseReq`1.Keyword">
+            <summary>
+            Keyword
+            </summary>
+        </member>
+        <member name="T:SKG.Req.PagingReq">
+            <summary>
+            Paging request (support paging on server)
+            </summary>
+        </member>
+        <member name="M:SKG.Req.PagingReq.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Req.PagingReq.#ctor(System.Object,System.Collections.Generic.List{SKG.Dto.SortDto})">
+            <summary>
+            Initialize
+            </summary>
+            <param name="filter">Filter</param>
+            <param name="sort">Sort</param>
+        </member>
+        <member name="M:SKG.Req.PagingReq.#ctor(System.Object,System.Collections.Generic.List{SKG.Dto.SortDto},System.Boolean)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="filter">Filter</param>
+            <param name="sort">Sort</param>
+            <param name="paging">Paging</param>
+        </member>
+        <member name="P:SKG.Req.PagingReq.Page">
+            <summary>
+            Page
+            </summary>
+        </member>
+        <member name="P:SKG.Req.PagingReq.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="P:SKG.Req.PagingReq.Sort">
+            <summary>
+            Sort
+            </summary>
+        </member>
+        <member name="P:SKG.Req.PagingReq.Filter">
+            <summary>
+            Filter
+            </summary>
+        </member>
+        <member name="P:SKG.Req.PagingReq.Paging">
+            <summary>
+            Paging
+            </summary>
+        </member>
+        <member name="P:SKG.Req.PagingReq.UserId">
+            <summary>
+            Current user ID
+            </summary>
+        </member>
+        <member name="F:SKG.Req.PagingReq.page">
+            <summary>
+            Page
+            </summary>
+        </member>
+        <member name="F:SKG.Req.PagingReq.size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="T:SKG.Req.SimpleReq">
+            <summary>
+            Simple request
+            </summary>
+        </member>
+        <member name="M:SKG.Req.SimpleReq.ToModel(System.Nullable{System.Int32})">
+            <summary>
+            Convert the request to the model
+            </summary>
+            <param name="createdBy">Created by</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.Req.SimpleReq.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Req.SimpleReq.#ctor(System.Int32)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="id">ID</param>
+        </member>
+        <member name="M:SKG.Req.SimpleReq.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="keyword">Keyword</param>
+        </member>
+        <member name="T:SKG.Rsp.BaseRsp">
+            <summary>
+            Base response
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.#ctor(System.String,System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+            <param name="titleError">Title error</param>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.SetError(System.String)">
+            <summary>
+            Set error
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.SetMessage(System.String)">
+            <summary>
+            Set message
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.BaseRsp.TestError">
+            <summary>
+            Test error
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.BaseRsp.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.BaseRsp.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.BaseRsp.Variant">
+            <summary>
+            Variant
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.BaseRsp.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="F:SKG.Rsp.BaseRsp.dev">
+            <summary>
+            Developer mode
+            </summary>
+        </member>
+        <member name="F:SKG.Rsp.BaseRsp.err">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="F:SKG.Rsp.BaseRsp.titleError">
+            <summary>
+            Title error
+            </summary>
+        </member>
+        <member name="F:SKG.Rsp.BaseRsp.msg">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="T:SKG.Rsp.MultipleRsp">
+            <summary>
+            Multiple response
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.MultipleRsp.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.MultipleRsp.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.MultipleRsp.#ctor(System.String,System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+            <param name="titleError">Title error</param>
+        </member>
+        <member name="M:SKG.Rsp.MultipleRsp.SetData(System.String,System.Object)">
+            <summary>
+            Set data
+            </summary>
+            <param name="key">Key</param>
+            <param name="o">Data</param>
+        </member>
+        <member name="P:SKG.Rsp.MultipleRsp.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="T:SKG.Rsp.SearchRsp">
+            <summary>
+            Search response
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.SearchRsp.#ctor(SKG.Req.PagingReq)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="req">Request</param>
+        </member>
+        <member name="M:SKG.Rsp.SearchRsp.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.SearchRsp.#ctor(System.String,System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+            <param name="titleError">Title error</param>
+        </member>
+        <member name="P:SKG.Rsp.SearchRsp.TotalRecords">
+            <summary>
+            Total records
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.SearchRsp.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.SearchRsp.Page">
+            <summary>
+            Page
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.SearchRsp.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="P:SKG.Rsp.SearchRsp.TotalPages">
+            <summary>
+            Total pages
+            </summary>
+        </member>
+        <member name="T:SKG.Rsp.SingleRsp">
+            <summary>
+            Single response
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.SingleRsp.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.Rsp.SingleRsp.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:SKG.Rsp.SingleRsp.#ctor(System.String,System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="message">Message</param>
+            <param name="titleError">Title error</param>
+        </member>
+        <member name="P:SKG.Rsp.SingleRsp.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="T:SKG.ZConst">
+            <summary>
+            Constant
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Payload">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="T:SKG.ZConst.String">
+            <summary>
+            String
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Blank">
+            <summary>
+            Blank
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Slash">
+            <summary>
+            Slash
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.BackSlash">
+            <summary>
+            Back slash
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Space">
+            <summary>
+            Space
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Dot">
+            <summary>
+            Dot
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Colon">
+            <summary>
+            Colon
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Semicolon">
+            <summary>
+            Semicolon
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Comma">
+            <summary>
+            Comma
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Question">
+            <summary>
+            Question
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Asterisk">
+            <summary>
+            Asterisk
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Caret">
+            <summary>
+            Caret
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Plus">
+            <summary>
+            Plus
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Minus">
+            <summary>
+            Minus
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Quotation">
+            <summary>
+            Quotation
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.VBar">
+            <summary>
+            Vertical bar
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.LSquare">
+            <summary>
+            Left square
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.RSquare">
+            <summary>
+            Right square
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Underscore">
+            <summary>
+            Underscore
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Ampersand">
+            <summary>
+            Ampersand
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Percent">
+            <summary>
+            Percent
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.AtSign">
+            <summary>
+            At sign
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Exclamation">
+            <summary>
+            Exclamation
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.String.Hyphen">
+            <summary>
+            Hyphen
+            </summary>
+        </member>
+        <member name="T:SKG.ZConst.Char">
+            <summary>
+            Char
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Slash">
+            <summary>
+            Slash
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.BackSlash">
+            <summary>
+            Back slash
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Space">
+            <summary>
+            Space
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Dot">
+            <summary>
+            Dot
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Colon">
+            <summary>
+            Colon
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Semicolon">
+            <summary>
+            Semicolon
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Comma">
+            <summary>
+            Comma
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Question">
+            <summary>
+            Question
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Asterisk">
+            <summary>
+            Asterisk
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Caret">
+            <summary>
+            Caret
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Plus">
+            <summary>
+            Plus
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Minus">
+            <summary>
+            Minus
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Quotation">
+            <summary>
+            Quotation
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.VBar">
+            <summary>
+            Vertical bar
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.LSquare">
+            <summary>
+            Left square
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.RSquare">
+            <summary>
+            Right square
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Underscore">
+            <summary>
+            Underscore
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Ampersand">
+            <summary>
+            Ampersand
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Percent">
+            <summary>
+            Percent
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.AtSign">
+            <summary>
+            At sign
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Exclamation">
+            <summary>
+            Exclamation
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Char.Hyphen">
+            <summary>
+            Hyphen
+            </summary>
+        </member>
+        <member name="T:SKG.ZConst.Format">
+            <summary>
+            DateTime format string
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.Date">
+            <summary>
+            dd-MMM-yyyy
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.TimeNoSec">
+            <summary>
+            hh:mm tt
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.Time">
+            <summary>
+            HH:mm:ss
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.DateTimeNoSec">
+            <summary>
+            dd-MMM-yyyy hh:mm tt
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.DateTime">
+            <summary>
+            dd-MMM-yyyy h:mm:ss tt
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.SqlDateTime">
+            <summary>
+            yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.IsoDateTime">
+            <summary>
+            MM/dd/yyyy HH:mm:ss
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.GridDateTime">
+            <summary>
+            {0:dd-MMM-yyyy h:mm:ss tt}
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.GridDate">
+            <summary>
+            {0:dd-MMM-yyyy}
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.GridTime">
+            <summary>
+            {0:hh:mm tt}
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.Dmy">
+            <summary>
+            String format "dd/MM/yyyy"
+            </summary>
+        </member>
+        <member name="F:SKG.ZConst.Format.DmyHms">
+            <summary>
+            String format "dd/MM/yyyy HH:mm:ss"
+            </summary>
+        </member>
+        <member name="T:SKG.ZDate">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="M:SKG.ZDate.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="T:SKG.ZEnum">
+            <summary>
+            Enumeration
+            </summary>
+        </member>
+        <member name="T:SKG.ZEnum.Format">
+            <summary>
+            Text format
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.Format.Sentence">
+            <summary>
+            Sentence case
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.Format.Lower">
+            <summary>
+            lower case
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.Format.Upper">
+            <summary>
+            UPPER CASE
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.Format.Capitalized">
+            <summary>
+            Capitalized Case
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.Format.Orginal">
+            <summary>
+            Orginal string
+            </summary>
+        </member>
+        <member name="T:SKG.ZEnum.RsaKeySize">
+            <summary>
+            RSA key size
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaKeySize.First">
+            <summary>
+            Size 512
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaKeySize.Second">
+            <summary>
+            Size 1024
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaKeySize.Third">
+            <summary>
+            Size 2048
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaKeySize.Fourth">
+            <summary>
+            Size 4096
+            </summary>
+        </member>
+        <member name="T:SKG.ZEnum.RsaType">
+            <summary>
+            RSA type
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaType.RSA1">
+            <summary>
+            Use SHA1
+            </summary>
+        </member>
+        <member name="F:SKG.ZEnum.RsaType.RSA2">
+            <summary>
+            Use SHA256
+            </summary>
+        </member>
+        <member name="T:SKG.ZHash">
+            <summary>
+            Hash
+            </summary>
+        </member>
+        <member name="M:SKG.ZHash.#ctor(System.String)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="s">Data</param>
+        </member>
+        <member name="P:SKG.ZHash.Hash">
+            <summary>
+            Hash
+            </summary>
+        </member>
+        <member name="P:SKG.ZHash.Salt">
+            <summary>
+            Salt
+            </summary>
+        </member>
+        <member name="P:SKG.ZHash.Pepper">
+            <summary>
+            Pepper
+            </summary>
+        </member>
+        <member name="F:SKG.ZHash._dat">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="T:SKG.ZRsa">
+            <summary>
+            RSA
+            </summary>
+        </member>
+        <member name="M:SKG.ZRsa.#ctor(SKG.ZEnum.RsaKeySize)">
+            <summary>
+            Initialize to create key pairs
+            </summary>
+            <param name="size">Key size</param>
+        </member>
+        <member name="M:SKG.ZRsa.Encrypt(System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="s">Plain text</param>
+            <returns>Return the encrypted text</returns>
+        </member>
+        <member name="M:SKG.ZRsa.Decrypt(System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="s">Encrypted text</param>
+            <returns>Return the plain text</returns>
+        </member>
+        <member name="M:SKG.ZRsa.Encrypt(System.Byte[],System.Int32,System.String)">
+            <summary>
+            Encrypt
+            </summary>
+            <param name="data">Data</param>
+            <param name="size">Size</param>
+            <param name="key">key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.ZRsa.Decrypt(System.Byte[],System.Int32,System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="data">Data</param>
+            <param name="size">Size</param>
+            <param name="key">Key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.ZRsa.GetMaxDataLength(System.Int32)">
+            <summary>
+            Get max data length
+            </summary>
+            <param name="size">Size</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.ZRsa.ValidSize(System.Int32)">
+            <summary>
+            Valid size
+            </summary>
+            <param name="size">Size</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.ZRsa.FrJsonString(System.Security.Cryptography.RSA,System.String)">
+            <summary>
+            From JSON string
+            </summary>
+            <param name="o">Represents the base class from which all implementations of
+            the System.Security.Cryptography.RSA algorithm inherit</param>
+            <param name="s">JSON string</param>
+        </member>
+        <member name="M:SKG.ZRsa.ToJsonString(System.Security.Cryptography.RSA,System.Boolean)">
+            <summary>
+            To JSON string
+            </summary>
+            <param name="o">Represents the base class from which all implementations of
+            the System.Security.Cryptography.RSA algorithm inherit</param>
+            <param name="privateParam">Include private parameters</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="P:SKG.ZRsa.Public">
+            <summary>
+            Public key
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Private">
+            <summary>
+            Private key
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.PublicKey">
+            <summary>
+            Public key
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.PrivateKey">
+            <summary>
+            Private key
+            </summary>
+        </member>
+        <member name="F:SKG.ZRsa._padding">
+            <summary>
+            Optimal asymmetric encryption padding
+            </summary>
+        </member>
+        <member name="T:SKG.ZRsa.Key">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="M:SKG.ZRsa.Key.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="M:SKG.ZRsa.Key.Encrypt(System.String,System.Int32)">
+            <summary>
+            Include key in encryption string
+            </summary>
+            <param name="key">Key</param>
+            <param name="size">Size</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="M:SKG.ZRsa.Key.Decrypt(System.String)">
+            <summary>
+            Decrypt key from encryption string
+            </summary>
+            <param name="key">Key</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="P:SKG.ZRsa.Key.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Key.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="T:SKG.ZRsa.Parameter">
+            <summary>
+            Represents the standard parameters for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="M:SKG.ZRsa.Parameter.#ctor">
+            <summary>
+            Initialize
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.D">
+            <summary>
+            Represents the D parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.Dp">
+            <summary>
+            Represents the DP parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.Dq">
+            <summary>
+            Represents the DQ parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.Exponent">
+            <summary>
+            Represents the Exponent parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.InverseQ">
+            <summary>
+            Represents the InverseQ parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.Modulus">
+            <summary>
+            Represents the Modulus parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.P">
+            <summary>
+            Represents the P parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="P:SKG.ZRsa.Parameter.Q">
+            <summary>
+            Represents the Q parameter for the System.Security.Cryptography.RSA algorithm.
+            </summary>
+        </member>
+        <member name="T:SKG.ZToken">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="M:SKG.ZToken.#ctor(System.String,System.Object,System.Double)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="secret">Secret</param>
+            <param name="user">User information</param>
+            <param name="expires">Expires (minute: 1 - 10000)</param>
+        </member>
+        <member name="M:SKG.ZToken.Hash(System.String)">
+            <summary>
+            Hash
+            </summary>
+            <param name="password">Password</param>
+            <returns>Return the result</returns>
+        </member>
+        <member name="P:SKG.ZToken.Secret">
+            <summary>
+            Secret
+            </summary>
+        </member>
+        <member name="P:SKG.ZToken.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="P:SKG.ZToken.Expires">
+            <summary>
+            Expires (minute: 1 - 10000)
+            </summary>
+        </member>
+        <member name="P:SKG.ZToken.Jwt">
+            <summary>
+            JSON web token
+            </summary>
+        </member>
+    </members>
+</doc>
