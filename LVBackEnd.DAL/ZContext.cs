@@ -7,22 +7,21 @@ namespace LVBackEnd.DAL
 
     public partial class ZContext : DbContext
     {
-        public ZContext()
-        {
-        }
+        public ZContext() { }
 
-        public ZContext(DbContextOptions<ZContext> options)
-            : base(options)
-        {
-        }
+        public ZContext(DbContextOptions<ZContext> options) : base(options) { }
 
         public virtual DbSet<Code> Code { get; set; }
         public virtual DbSet<CodeType> CodeType { get; set; }
+        public virtual DbSet<Disease> Disease { get; set; }
         public virtual DbSet<Function> Function { get; set; }
         public virtual DbSet<FunctionRole> FunctionRole { get; set; }
         public virtual DbSet<Group> Group { get; set; }
+        public virtual DbSet<HuyLog> HuyLog { get; set; }
+        public virtual DbSet<PatientData> PatientData { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Setting> Setting { get; set; }
+        public virtual DbSet<Symptom> Symptom { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserLog> UserLog { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
@@ -90,6 +89,21 @@ namespace LVBackEnd.DAL
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
             });
 
+            modelBuilder.Entity<Disease>(entity =>
+            {
+                entity.ToTable("Disease", "Luan");
+
+                entity.Property(e => e.Code).HasMaxLength(50);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.Status).HasDefaultValueSql("((0))");
+            });
+
             modelBuilder.Entity<Function>(entity =>
             {
                 entity.ToTable("Function", "System");
@@ -135,6 +149,42 @@ namespace LVBackEnd.DAL
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
             });
 
+            modelBuilder.Entity<HuyLog>(entity =>
+            {
+                entity.ToTable("HuyLog", "Huy");
+
+                entity.Property(e => e.Destination)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Info).HasColumnType("text");
+
+                entity.Property(e => e.Protocol)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Source)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.StampTime).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<PatientData>(entity =>
+            {
+                entity.ToTable("PatientData", "Luan");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.OriginalHealth).HasMaxLength(256);
+
+                entity.Property(e => e.Status).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Symptons).IsUnicode(false);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role", "System");
@@ -177,6 +227,21 @@ namespace LVBackEnd.DAL
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Value).HasColumnType("ntext");
+            });
+
+            modelBuilder.Entity<Symptom>(entity =>
+            {
+                entity.ToTable("Symptom", "Luan");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Group).HasMaxLength(100);
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.Status).HasDefaultValueSql("((0))");
             });
 
             modelBuilder.Entity<User>(entity =>
