@@ -58,3 +58,20 @@ CREATE TABLE [Luan].[PatientData]
 	[ModifiedOn]			DATETIME
 );
 
+GO
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME = 'Rule')
+	DROP TABLE [Luan].[Rule]
+CREATE TABLE [Luan].[Rule]
+(
+	[Id]					INT IDENTITY(1, 1) PRIMARY KEY,			
+	[VT]					VARCHAR(MAX),
+	[VP]					VARCHAR(MAX),
+	[RuleType]				SMALLINT,	
+	[Note]					NVARCHAR(MAX),
+	[Status]				SMALLINT NULL DEFAULT 0,
+	[CreatedBy]				INT,
+	[CreatedOn]				DATETIME,
+	[ModifiedBy]			INT,
+	[ModifiedOn]			DATETIME
+);
+
