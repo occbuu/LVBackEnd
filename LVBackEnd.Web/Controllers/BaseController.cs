@@ -14,8 +14,7 @@ namespace LVBackEnd.Web.Controllers
     /// </summary>
     //[Authorize]
     [ApiController]
-    [Route("api/[controller]")]
-    [ApiExplorerSettings(GroupName = "v1")]
+    [Route("api/[controller]")]    
     public class BaseController : ControllerBase
     {
         #region -- Methods --

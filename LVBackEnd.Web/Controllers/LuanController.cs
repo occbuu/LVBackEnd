@@ -11,7 +11,9 @@ namespace LVBackEnd.Web.Controllers
 {
     using BLL;
 
-    public class LuanController : BaseController
+    [Route("api/[controller]")]
+    [ApiController]    
+    public class LuanController : ControllerBase
     {
         public LuanController()
         {
@@ -25,7 +27,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-disease")]
         public IActionResult ReadDisease([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svcDise.Read(req);
             return Ok(res);
         }
@@ -34,7 +36,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-rule")]
         public IActionResult ReadRule([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svcRule.Read(req);
             return Ok(res);
         }
@@ -43,7 +45,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-sympton")]
         public IActionResult ReadSympton([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svcSymp.Read(req);
             return Ok(res);
         }
@@ -52,7 +54,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-patient-data")]
         public IActionResult ReadPatientData([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svcPatie.Read(req);
             return Ok(res);
         }

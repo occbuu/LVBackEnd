@@ -6,10 +6,10 @@ namespace LVBackEnd.Web.Controllers
 {
     using BLL;
 
-    /// <summary>
-    /// Code controller
-    /// </summary>
-    public class CodeController : BaseController
+    [Route("api/[controller]")]
+    [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
+    public class CodeController : ControllerBase
     {
         #region -- Methods --
 
@@ -57,7 +57,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("search")]
         public IActionResult Read([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svc.Read(req);
             return Ok(res);
         }
@@ -70,7 +70,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-by-keyword1")]
         public IActionResult ReadByKeyWord1([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svc.Read(req);
             return Ok(res);
         }
@@ -83,7 +83,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("read-by-keyword1")]
         public IActionResult ReadCodeTable([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svc.Read(req);
             return Ok(res);
         }

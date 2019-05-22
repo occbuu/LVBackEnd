@@ -10,8 +10,10 @@ using SKG.Req;
 namespace LVBackEnd.Web.Controllers
 {
     using BLL;
-    
-    public class HuyController : BaseController
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HuyController : ControllerBase
     {
         public HuyController(HuyLogSvc svc)
         {
@@ -35,7 +37,7 @@ namespace LVBackEnd.Web.Controllers
         [HttpPost("search")]
         public IActionResult Read([FromBody]PagingReq req)
         {
-            req.UserId = UserId;
+            //req.UserId = UserId;
             var res = _svc.Read(req);
             return Ok(res);
         }
