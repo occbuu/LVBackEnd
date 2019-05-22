@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using SKG;
 
 namespace LVBackEnd.DAL
@@ -26,6 +27,9 @@ namespace LVBackEnd.DAL
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserLog> UserLog { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+
+        // Unable to generate entity type for table 'Luan.BenhAn'. Please see the warning messages.
+        // Unable to generate entity type for table 'Luan.Luat'. Please see the warning messages.
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -72,7 +76,7 @@ namespace LVBackEnd.DAL
             modelBuilder.Entity<CodeType>(entity =>
             {
                 entity.HasKey(e => e.Code)
-                    .HasName("PK__CodeType__A25C5AA6C72F33D3");
+                    .HasName("PK__CodeType__A25C5AA648BC8307");
 
                 entity.ToTable("CodeType", "System");
 
@@ -154,21 +158,37 @@ namespace LVBackEnd.DAL
             {
                 entity.ToTable("HuyLog", "Huy");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CipherChange).HasMaxLength(100);
+
+                entity.Property(e => e.ClientExchange).HasMaxLength(100);
+
                 entity.Property(e => e.Destination)
-                    .HasMaxLength(256)
-                    .IsUnicode(false);
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.DestinationPort).HasMaxLength(100);
 
                 entity.Property(e => e.Info).HasColumnType("text");
 
+                entity.Property(e => e.MessagePhase).HasMaxLength(100);
+
+                entity.Property(e => e.Ping).HasMaxLength(100);
+
                 entity.Property(e => e.Protocol)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                    .IsRequired()
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Source)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                    .IsRequired()
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.StampTime).HasColumnType("datetime");
+                entity.Property(e => e.SourcePort).HasMaxLength(100);
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<PatientData>(entity =>
@@ -229,7 +249,7 @@ namespace LVBackEnd.DAL
             modelBuilder.Entity<Setting>(entity =>
             {
                 entity.HasKey(e => e.Key)
-                    .HasName("PK__Setting__C41E0288D9F70BB1");
+                    .HasName("PK__Setting__C41E02881D191EC8");
 
                 entity.ToTable("Setting", "System");
 
