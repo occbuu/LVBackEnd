@@ -20,6 +20,7 @@ namespace LVBackEnd.DAL
         public virtual DbSet<HuyLog> HuyLog { get; set; }
         public virtual DbSet<PatientData> PatientData { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Rule> Rule { get; set; }
         public virtual DbSet<Setting> Setting { get; set; }
         public virtual DbSet<Symptom> Symptom { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -71,7 +72,7 @@ namespace LVBackEnd.DAL
             modelBuilder.Entity<CodeType>(entity =>
             {
                 entity.HasKey(e => e.Code)
-                    .HasName("PK__CodeType__A25C5AA62EDCF7A5");
+                    .HasName("PK__CodeType__A25C5AA6C72F33D3");
 
                 entity.ToTable("CodeType", "System");
 
@@ -174,11 +175,19 @@ namespace LVBackEnd.DAL
             {
                 entity.ToTable("PatientData", "Luan");
 
+                entity.Property(e => e.BloodPressure).IsUnicode(false);
+
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
+                entity.Property(e => e.NDays).HasColumnName("nDays");
+
                 entity.Property(e => e.OriginalHealth).HasMaxLength(256);
+
+                entity.Property(e => e.ResultDisease1).IsUnicode(false);
+
+                entity.Property(e => e.ResultDisease2).IsUnicode(false);
 
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
 
@@ -198,10 +207,29 @@ namespace LVBackEnd.DAL
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
             });
 
+            modelBuilder.Entity<Rule>(entity =>
+            {
+                entity.ToTable("Rule", "Luan");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Status).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Vp)
+                    .HasColumnName("VP")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Vt)
+                    .HasColumnName("VT")
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Setting>(entity =>
             {
                 entity.HasKey(e => e.Key)
-                    .HasName("PK__Setting__C41E0288821ABD2E");
+                    .HasName("PK__Setting__C41E0288D9F70BB1");
 
                 entity.ToTable("Setting", "System");
 
