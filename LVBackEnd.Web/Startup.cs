@@ -106,6 +106,7 @@ namespace LVBackEnd.Web
 
             #region -- Configure DI for application services --
             services.AddSingleton<CodeSvc, CodeSvc>();
+            services.AddSingleton<HuyLogSvc, HuyLogSvc>();
             #endregion
         }
 
@@ -135,7 +136,13 @@ namespace LVBackEnd.Web
             //app.UseAuthentication();
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            //app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            });
         }
     }
 }
