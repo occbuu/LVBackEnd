@@ -59,7 +59,7 @@ namespace LVBackEnd.ExportCsv
             });
         }
 
-        static void AddCell(string text, bool first = false)
+        static void AddCell(string text = null, bool first = false)
         {
             if (text == null)
             {
@@ -142,7 +142,7 @@ namespace LVBackEnd.ExportCsv
                     // Add header
                     AddCell(DEFAULT_COLUMNS + ",", true);
                     AddCell(string.Join(",", lsColumn), true);
-                    AddCell(Environment.NewLine, true);
+                    AddCell();
 
                     foreach (var i in lsColumn)
                     {
@@ -206,7 +206,7 @@ namespace LVBackEnd.ExportCsv
                                     AddCell(reader.GetBoolean(j).ToString());
                                 }
 
-                                AddCell(Environment.NewLine, true);
+                                AddCell();
                             }
                         }
                     }
