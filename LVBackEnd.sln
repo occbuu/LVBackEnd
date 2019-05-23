@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LVBackEnd.Web", "LVBackEnd.Web\LVBackEnd.Web.csproj", "{4F372B31-623A-41E0-856E-A74023BEB091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LVBackEnd.Web", "LVBackEnd.Web\LVBackEnd.Web.csproj", "{4F372B31-623A-41E0-856E-A74023BEB091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LVBackEnd", "LVBackEnd\LVBackEnd.csproj", "{941CC41A-C744-4868-8A39-21FD799C0C7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LVBackEnd", "LVBackEnd\LVBackEnd.csproj", "{941CC41A-C744-4868-8A39-21FD799C0C7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LVBackEnd.DAL", "LVBackEnd.DAL\LVBackEnd.DAL.csproj", "{187B38CD-F099-416B-8F2D-1EBE05F607C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LVBackEnd.DAL", "LVBackEnd.DAL\LVBackEnd.DAL.csproj", "{187B38CD-F099-416B-8F2D-1EBE05F607C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LVBackEnd.BLL", "LVBackEnd.BLL\LVBackEnd.BLL.csproj", "{9FD395EF-B71C-4346-A151-BDB0AB9E7BDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LVBackEnd.BLL", "LVBackEnd.BLL\LVBackEnd.BLL.csproj", "{9FD395EF-B71C-4346-A151-BDB0AB9E7BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LVBackEnd.ExportCsv", "LVBackEnd.ExportCsv\LVBackEnd.ExportCsv.csproj", "{9CF03E7F-A688-4CC6-8A86-B53D1B60A5C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,12 +35,16 @@ Global
 		{9FD395EF-B71C-4346-A151-BDB0AB9E7BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FD395EF-B71C-4346-A151-BDB0AB9E7BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FD395EF-B71C-4346-A151-BDB0AB9E7BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF03E7F-A688-4CC6-8A86-B53D1B60A5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF03E7F-A688-4CC6-8A86-B53D1B60A5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF03E7F-A688-4CC6-8A86-B53D1B60A5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF03E7F-A688-4CC6-8A86-B53D1B60A5C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {D09E9AA8-17D4-40E8-845B-81BC80B99B25}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal
