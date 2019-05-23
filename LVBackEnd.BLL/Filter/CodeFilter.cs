@@ -17,7 +17,7 @@
         #region -- Properties --
 
         /// <summary>
-        /// Code type
+        /// CodeType
         /// </summary>
         public string CodeType { get; set; }
 

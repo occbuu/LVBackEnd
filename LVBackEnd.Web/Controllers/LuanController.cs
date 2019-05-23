@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SKG.Req;
 
@@ -12,7 +7,7 @@ namespace LVBackEnd.Web.Controllers
     using BLL;
 
     [Route("api/[controller]")]
-    [ApiController]    
+    [ApiController]
     public class LuanController : ControllerBase
     {
         public LuanController()
@@ -50,12 +45,22 @@ namespace LVBackEnd.Web.Controllers
             return Ok(res);
         }
 
+
         [AllowAnonymous]
         [HttpPost("read-patient-data")]
         public IActionResult ReadPatientData([FromBody]PagingReq req)
         {
             //req.UserId = UserId;
             var res = _svcPatie.Read(req);
+            return Ok(res);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("read-symptom-type")]
+        public IActionResult ReadSymptomType()
+        {
+            //req.UserId = UserId;
+            var res = _svcPatie.ReadSymptomType();
             return Ok(res);
         }
 

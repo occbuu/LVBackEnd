@@ -4,7 +4,6 @@ using SKG.Ext;
 using SKG.Req;
 using SKG.Rsp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 
@@ -64,20 +63,31 @@ namespace LVBackEnd.BLL
         /// </summary>
         public PatientDataSvc()
         {
-
+            _repSym = new SymptomRep();
         }
 
+        /// <summary>
+        /// Read symptom type 
+        /// </summary>
+        /// <returns>Return the result</returns>
+        public SingleRsp ReadSymptomType()
+        {
+            var res = new SingleRsp
+            {
+                Data = _rep.Context.Symptom.Select(x => x.Group).ToList().Distinct()
+            };
 
+            return res;
+        }
 
         #endregion
-
 
         #region -- Fields --
 
         /// <summary>
-        /// Code type rep
+        /// User role rep
         /// </summary>
-
+        SymptomRep _repSym;
 
         #endregion
     }
