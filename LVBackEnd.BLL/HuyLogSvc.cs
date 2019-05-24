@@ -95,15 +95,9 @@ namespace LVBackEnd.BLL
         /// <summary>
         /// Initialize
         /// </summary>
-        public HuyLogSvc()
-        {
-
-        }
-
-
+        public HuyLogSvc() {}
 
         #endregion
-
 
         #region -- Fields --
 

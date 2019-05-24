@@ -4,7 +4,6 @@ using SKG.Ext;
 using SKG.Req;
 using SKG.Rsp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LVBackEnd.BLL
@@ -23,15 +22,25 @@ namespace LVBackEnd.BLL
             try
             {
                 // Get data
-                var filter = new CodeFilter();
+                var filter = new SymptomFilter();
                 if (req.Filter != null)
                 {
-                    filter = JsonConvert.DeserializeObject<CodeFilter>(req.Filter.ToString());
+                    filter = JsonConvert.DeserializeObject<SymptomFilter>(req.Filter.ToString());
                 }
+
                 var page = req.Page;
                 var size = req.Size;
                 var offset = (page - 1) * size;
                 var query = All;
+
+                #region -- Filter --
+
+                if (filter.Type != null)
+                {
+                    query = query.Where(p => p.Group == filter.Type);
+                }
+
+                #endregion
 
                 res.TotalRecords = query.Count();
 
@@ -54,31 +63,20 @@ namespace LVBackEnd.BLL
 
             return res;
         }
+
         #endregion
-
-
+        
         #region -- Methods --
 
         /// <summary>
         /// Initialize
         /// </summary>
-        public SymptomSvc()
-        {
-
-        }
-
-
+        public SymptomSvc() {}
 
         #endregion
-
-
+        
         #region -- Fields --
-
-        /// <summary>
-        /// Code type rep
-        /// </summary>
-
-
+        
         #endregion
     }
 }

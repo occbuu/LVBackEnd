@@ -107,9 +107,11 @@ namespace LVBackEnd.Web
             #region -- Configure DI for application services --
             services.AddSingleton<CodeSvc, CodeSvc>();
             services.AddSingleton<HuyLogSvc, HuyLogSvc>();
+            services.AddSingleton<SymptomSvc, SymptomSvc>();
+            services.AddSingleton<PatientDataSvc, PatientDataSvc>();
             #endregion
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

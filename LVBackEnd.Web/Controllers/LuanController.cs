@@ -64,6 +64,15 @@ namespace LVBackEnd.Web.Controllers
             return Ok(res);
         }
 
+        [AllowAnonymous]
+        [HttpPost("search-symptom")]
+        public IActionResult SearchSymptom([FromBody] PagingReq req)
+        {
+            //req.UserId = UserId;
+            var res = _svcSymp.Read(req);
+            return Ok(res);
+        }
+
         #region -- Fields --
 
         /// <summary>

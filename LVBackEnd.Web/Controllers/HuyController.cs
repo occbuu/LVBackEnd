@@ -35,7 +35,7 @@ namespace LVBackEnd.Web.Controllers
         /// <returns>Return the result</returns>
         [AllowAnonymous]
         [HttpPost("search")]
-        public IActionResult Read([FromBody]PagingReq req)
+        public IActionResult Read([FromBody] PagingReq req)
         {
             //req.UserId = UserId;
             var res = _svc.Read(req);
