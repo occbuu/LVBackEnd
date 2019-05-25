@@ -65,18 +65,32 @@ namespace LVBackEnd.BLL
         }
 
         #endregion
-        
+
         #region -- Methods --
 
         /// <summary>
         /// Initialize
         /// </summary>
-        public SymptomSvc() {}
+        public SymptomSvc() { }
+
+        /// <summary>
+        /// Read symptom type 
+        /// </summary>
+        /// <returns>Return the result</returns>
+        public SingleRsp ReadSymptomType()
+        {
+            var res = new SingleRsp
+            {
+                Data = _rep.Context.Symptom.Select(x => x.Group).ToList().Distinct()
+            };
+
+            return res;
+        }
 
         #endregion
-        
+
         #region -- Fields --
-        
+
         #endregion
     }
 }

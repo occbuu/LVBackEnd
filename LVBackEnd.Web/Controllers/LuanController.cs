@@ -60,7 +60,7 @@ namespace LVBackEnd.Web.Controllers
         public IActionResult ReadSymptomType()
         {
             //req.UserId = UserId;
-            var res = _svcPatie.ReadSymptomType();
+            var res = _svcSymp.ReadSymptomType();
             return Ok(res);
         }
 
