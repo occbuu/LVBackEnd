@@ -89,42 +89,6 @@ namespace LVBackEnd.BLL
             return res;
         }
 
-        class ProductComparer : IEqualityComparer<string>
-        {
-            // Products are equal if their names and product numbers are equal.
-            public bool Equals(string x, string y)
-            {
-                if (x != y) return false;
-
-                //Check whether any of the compared objects is null.
-                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
-                    return false;
-
-                //Check whether the compared objects reference the same data.
-                if (Object.ReferenceEquals(x, y)) return true;
-
-                //Check whether the products' properties are equal.
-                return x == y;
-            }
-            public int GetHashCode(string product)
-            {
-                if (product == "") return 0;
-
-                //Check whether the object is null
-                if (Object.ReferenceEquals(product, null)) return 0;
-
-                //Get hash code for the Name field if it is not null.
-                int hashProductName = product == null ? 0 : product.GetHashCode();
-
-                //Get hash code for the Code field.
-                int hashProductCode = product.GetHashCode();
-
-                //Calculate the hash code for the product.
-                return hashProductName ^ hashProductCode;
-            }
-
-        }
-
         public bool Check(string[] array, string[] array2)
         {
             foreach (var i in array)
@@ -134,23 +98,30 @@ namespace LVBackEnd.BLL
             return true;
         }
 
-        public SingleRsp Test()
+        public SingleRsp Diagnostic(List<int> req)
         {
+            List<string> pre = new List<string>();
             List<string> lsOk = new List<string>();
 
-            string[] sam = { "{118}", "{119}", "{120}" };
+            foreach (var i in req)
+            {
+                pre.Add("{" + i + "}");
+            }
+
+            string[] sam = pre.ToArray();
 
             var ls = _rep.Context.Rule.Select(x => x.Vt).ToList();
 
             foreach (var vt in ls)
             {
                 var sam2 = vt.Split(',');
-                var check = Check(sam, sam2);
+                var check = Check(sam2, sam);
                 if (check) lsOk.Add(vt);
             }
 
             var query = (from a in _rep.Context.Rule
                          join b in _rep.Context.Disease on a.Vp equals b.Code
+                         where lsOk.Contains(a.Vt)
                          select new
                          {
                              a.Id,
@@ -158,11 +129,14 @@ namespace LVBackEnd.BLL
                              a.Vp,
                              a.RuleType,
                              b.Name
-                         });
+                         })
+                         .OrderBy(o => o.RuleType)
+                         .GroupBy(g => new { g.Name })
+                         .Select(x => x.FirstOrDefault());
 
             var res = new SingleRsp
             {
-                Data = _rep.Context.Symptom.Select(x => x.Group).ToList().Distinct()
+                Data = query.ToList()
             };
 
             return res;

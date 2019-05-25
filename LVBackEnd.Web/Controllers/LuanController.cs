@@ -5,6 +5,7 @@ using SKG.Req;
 namespace LVBackEnd.Web.Controllers
 {
     using BLL;
+    using System.Collections.Generic;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -74,11 +75,11 @@ namespace LVBackEnd.Web.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("cal")]
-        public IActionResult Test([FromBody] PagingReq req)
+        [HttpPost("diagnostic")]
+        public IActionResult Diagnostic([FromBody] List<int> req)
         {
             //req.UserId = UserId;
-            var res = _svcSymp.Test();
+            var res = _svcSymp.Diagnostic(req);
             return Ok(res);
         }
 
