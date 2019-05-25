@@ -93,7 +93,7 @@ namespace LVBackEnd.BLL
         {
             foreach (var i in array)
             {
-                if (array2.IndexOf(i) == -1) return false;
+                if (array2.IndexOf(i.Trim()) == -1) return false;
             }
             return true;
         }
@@ -131,7 +131,7 @@ namespace LVBackEnd.BLL
                              b.Name
                          })
                          .OrderBy(o => o.RuleType)
-                         .GroupBy(g => new { g.Name })
+                         .GroupBy(g => new { g.Id })
                          .Select(x => x.FirstOrDefault());
 
             var res = new SingleRsp
