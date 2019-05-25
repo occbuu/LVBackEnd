@@ -8,8 +8,15 @@ namespace LVBackEnd.ExportCsv
 {
     class Program
     {
-        const string TABLE = "Luan.[Rule]";
-        const string DEFAULT_COLUMNS = "Id,VT,VP";
+        /* Rule
+         * "Luan.[Rule]"
+         * "Id,VT,VP"
+         * 1
+         */
+
+        const string TABLE = "Luan.[PatientData]";
+        const string DEFAULT_COLUMNS = "Age,Sex,Symptons,OriginalHealth,BloodPressure,BloodPressureP,BloodPressureN,Temperature,BloodVessel,nDays,ResultDisease1,ResultDisease2";
+        const int TARGET_COLUMN = 3;
 
         static List<int> lsColumn = new List<int>();
         static List<Record> lsRecord = new List<Record>();
@@ -30,7 +37,13 @@ namespace LVBackEnd.ExportCsv
             public List<int> ListCode;
         }
 
-        static void ReadRecord(int id, string code)
+        class Con
+        {
+            public SqlConnection Conn;
+            public StringBuilder Sb;
+        }
+
+        static void ReadRecord(int id, string code, Con obj = null)
         {
             if (code == null || code == "") return;
 
@@ -41,15 +54,65 @@ namespace LVBackEnd.ExportCsv
             {
                 if (i == null || i.Trim() == "") continue;
 
-                var t2 = int.Parse(i.Replace("{", "").Replace("}", ""));
+                var len = i.Trim().Length - 1;
+                var ind = i.Trim().IndexOf('}');
 
-                var index = lsColumn.IndexOf(t2);
-                if (index == -1)
+                if (len > ind)
                 {
-                    lsColumn.Add(t2);
-                }
+                    var ii = i.Insert(ind + 1, ",");
+                    var split2 = ii.Split(',');
 
-                ls.Add(t2);
+                    foreach (var j in split2)
+                    {
+                        if (j == null || j.Trim() == "") continue;
+
+                        var pre2 = j.Replace("{", "").Replace("}", "").Trim();
+
+                        try
+                        {
+                            var t22 = int.Parse(pre2);
+                            var index2 = lsColumn.IndexOf(t22);
+                            if (index2 == -1)
+                            {
+                                lsColumn.Add(t22);
+                            }
+
+                            ls.Add(t22);
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                    }
+
+                    obj.Sb.Clear();
+                    obj.Sb.Append(string.Format("UPDATE {2} SET [{0}] = {1} WHERE Id = @id", TABLE.Substring(TABLE.IndexOf('[') + 1).Replace("]", ""), ii, TABLE));
+
+                    var sql = obj.Sb.ToString();
+                    using (SqlCommand command = new SqlCommand(sql, obj.Conn))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                    }
+                }
+                else
+                {
+                    var pre = i.Replace("{", "").Replace("}", "").Trim();
+
+                    try
+                    {
+                        var t2 = int.Parse(pre);
+                        var index = lsColumn.IndexOf(t2);
+                        if (index == -1)
+                        {
+                            lsColumn.Add(t2);
+                        }
+                        ls.Add(t2);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
             }
 
             lsRecord.Add(new Record
@@ -122,22 +185,22 @@ namespace LVBackEnd.ExportCsv
                 {
                     connection.Open();
 
+                    var sb = new StringBuilder();
+                    sb.Append(string.Format("USE {0}; ", config.InitialCatalog));
+
                     // Read
-                    var sql = string.Format("SELECT {1} FROM {0};", TABLE, DEFAULT_COLUMNS);
+                    var sql = string.Format("SELECT Id, {1} FROM {0};", TABLE, DEFAULT_COLUMNS);
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                ReadRecord(reader.GetInt32(0), reader.GetString(1));
+                                ReadRecord(reader.GetInt32(0), reader.GetString(TARGET_COLUMN), new Con { Conn = connection, Sb = sb });
                             }
                             lsColumn.Sort();
                         }
                     }
-
-                    var sb = new StringBuilder();
-                    sb.Append(string.Format("USE {0}; ", config.InitialCatalog));
 
                     // Add header
                     AddCell(DEFAULT_COLUMNS + ",", true);
@@ -196,9 +259,18 @@ namespace LVBackEnd.ExportCsv
                         {
                             while (reader.Read())
                             {
-                                AddCell(reader.GetInt32(0).ToString(), true);
-                                AddCell(reader.GetString(1).Replace(",", ""));
-                                AddCell(reader.GetString(2));
+                                AddCell(!reader.IsDBNull(0) ? reader.GetInt32(0).ToString() : "", true);
+                                AddCell(!reader.IsDBNull(1) ? reader.GetBoolean(1).ToString() : "");
+                                AddCell(!reader.IsDBNull(2) ? reader.GetString(2).Replace(",", "") : "");
+                                AddCell(!reader.IsDBNull(3) ? reader.GetString(3) : "");
+                                AddCell(!reader.IsDBNull(4) ? reader.GetString(4) : "");
+                                AddCell(!reader.IsDBNull(5) ? reader.GetInt32(5).ToString() : "");
+                                AddCell(!reader.IsDBNull(6) ? reader.GetInt32(6).ToString() : "");
+                                AddCell(!reader.IsDBNull(7) ? reader.GetInt32(7).ToString() : "");
+                                AddCell(!reader.IsDBNull(8) ? reader.GetInt32(8).ToString() : "");
+                                AddCell(!reader.IsDBNull(9) ? reader.GetInt32(9).ToString() : "");
+                                AddCell(!reader.IsDBNull(10) ? reader.GetString(10) : "");
+                                AddCell(!reader.IsDBNull(11) ? reader.GetString(11).Replace(",", ";") : "");
 
                                 var lenColumn = DEFAULT_COLUMNS.Split(',').Length;
                                 for (var j = lenColumn; j < reader.FieldCount; j++)
@@ -212,7 +284,7 @@ namespace LVBackEnd.ExportCsv
                     }
 
                     var time = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                    WriteFile(textFile, "Rule_" + time + ".csv");
+                    WriteFile(textFile, TABLE.Substring(TABLE.IndexOf('[') + 1).Replace("]", "") + "_" + time + ".csv");
                 }
             }
             catch (SqlException e)

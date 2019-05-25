@@ -11,6 +11,8 @@ namespace LVBackEnd.BLL
     using DAL;
     using DAL.Models;
     using Filter;
+    using Microsoft.EntityFrameworkCore.Internal;
+    using System.Collections.Generic;
 
     public class SymptomSvc : GenericSvc<SymptomRep, Symptom>
     {
@@ -79,6 +81,76 @@ namespace LVBackEnd.BLL
         /// <returns>Return the result</returns>
         public SingleRsp ReadSymptomType()
         {
+            var res = new SingleRsp
+            {
+                Data = _rep.Context.Symptom.Select(x => x.Group).ToList().Distinct()
+            };
+
+            return res;
+        }
+
+        class ProductComparer : IEqualityComparer<string>
+        {
+            // Products are equal if their names and product numbers are equal.
+            public bool Equals(string x, string y)
+            {
+                if (x != y) return false;
+
+                //Check whether any of the compared objects is null.
+                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                    return false;
+
+                //Check whether the compared objects reference the same data.
+                if (Object.ReferenceEquals(x, y)) return true;
+
+                //Check whether the products' properties are equal.
+                return x == y;
+            }
+            public int GetHashCode(string product)
+            {
+                if (product == "") return 0;
+
+                //Check whether the object is null
+                if (Object.ReferenceEquals(product, null)) return 0;
+
+                //Get hash code for the Name field if it is not null.
+                int hashProductName = product == null ? 0 : product.GetHashCode();
+
+                //Get hash code for the Code field.
+                int hashProductCode = product.GetHashCode();
+
+                //Calculate the hash code for the product.
+                return hashProductName ^ hashProductCode;
+            }
+
+        }
+
+        public bool Check(string[] array, string[] array2)
+        {
+            foreach (var i in array)
+            {
+                if (array2.IndexOf(i) == -1) return false;
+            }
+            return true;
+        }
+
+        public SingleRsp Test()
+        {
+            List<string> lsOk = new List<string>();
+
+            string[] sam = { "{118}", "{119}", "{120}" };
+
+            var ls = _rep.Context.Rule.Select(x => x.Vt).ToList();
+
+            foreach (var vt in ls)
+            {
+                var sam2 = vt.Split(',');
+                var query = Check(sam, sam2);
+                if (query) lsOk.Add(vt);
+            }
+
+            //var ls2 = _rep.Context.Rule.Se
+
             var res = new SingleRsp
             {
                 Data = _rep.Context.Symptom.Select(x => x.Group).ToList().Distinct()

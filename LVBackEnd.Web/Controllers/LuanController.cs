@@ -73,6 +73,15 @@ namespace LVBackEnd.Web.Controllers
             return Ok(res);
         }
 
+        [AllowAnonymous]
+        [HttpPost("cal")]
+        public IActionResult Test([FromBody] PagingReq req)
+        {
+            //req.UserId = UserId;
+            var res = _svcSymp.Test();
+            return Ok(res);
+        }
+
         #region -- Fields --
 
         /// <summary>
