@@ -78,3 +78,19 @@ CREATE TABLE [Luan].[Rule]
 	[ModifiedOn]			DATETIME
 );
 
+GO
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME = 'Suggestion')
+	DROP TABLE [Luan].[Suggestion]
+CREATE TABLE [Luan].[Suggestion]
+(
+	[Id]					INT IDENTITY(1, 1) PRIMARY KEY,		
+	[DiseaseId]				[int] NULL,
+	[ShoudDo]				[ntext] NULL,
+	[ShoudNotDo]			[ntext] NULL,
+	[Type]					[int] NULL,
+	[Status]				[smallint] NULL,
+	[CreatedBy]				[int] NULL,
+	[CreatedOn]				[datetime] NULL,
+);
+
+
