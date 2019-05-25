@@ -131,7 +131,7 @@ namespace LVBackEnd.BLL
                              b.Name
                          })
                          .OrderBy(o => o.RuleType)
-                         .GroupBy(g => new { g.Id })
+                         .GroupBy(g => new { g.Name })
                          .Select(x => x.FirstOrDefault());
 
             var res = new SingleRsp
