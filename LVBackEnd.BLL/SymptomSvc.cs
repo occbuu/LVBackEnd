@@ -102,6 +102,7 @@ namespace LVBackEnd.BLL
         {
             List<string> pre = new List<string>();
             List<string> lsOk = new List<string>();
+            List<string> lsSymptom = new List<string>();
 
             foreach (var i in req)
             {
@@ -118,6 +119,8 @@ namespace LVBackEnd.BLL
                 var check = Check(sam2, sam);
                 if (check) lsOk.Add(vt);
             }
+
+            lsSymptom = _rep.Context.Symptom.Where(x => req.Contains(x.Id)).Select(x => x.Name).ToList();
 
             var query = (from a in _rep.Context.Rule
                          join b in _rep.Context.Disease on a.Vp equals b.Code
@@ -136,7 +139,11 @@ namespace LVBackEnd.BLL
 
             var res = new SingleRsp
             {
-                Data = query.ToList()
+                Data = new
+                {
+                    Symptom = lsSymptom,
+                    Diagnostic = query.ToList()
+                }
             };
 
             return res;
