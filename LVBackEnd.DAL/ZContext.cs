@@ -27,6 +27,7 @@ namespace LVBackEnd.DAL
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserLog> UserLog { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<Suggestion> Suggestion { get; set; }
 
         // Unable to generate entity type for table 'Luan.BenhAn'. Please see the warning messages.
         // Unable to generate entity type for table 'Luan.Luat'. Please see the warning messages.
@@ -376,6 +377,17 @@ namespace LVBackEnd.DAL
                 entity.Property(e => e.Description).HasMaxLength(512);
 
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Status).HasDefaultValueSql("((0))");
+            });            
+
+            modelBuilder.Entity<Suggestion>(entity =>
+            {
+                entity.ToTable("Suggestion", "Luan");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.DiseaseCode).HasMaxLength(50);
 
                 entity.Property(e => e.Status).HasDefaultValueSql("((0))");
             });

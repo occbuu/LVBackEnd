@@ -124,14 +124,21 @@ namespace LVBackEnd.BLL
 
             var query = (from a in _rep.Context.Rule
                          join b in _rep.Context.Disease on a.Vp equals b.Code
+                         join c in _rep.Context.Suggestion on b.Code equals c.DiseaseCode into gC
+                         from c in gC.DefaultIfEmpty()
                          where lsOk.Contains(a.Vt)
                          select new
                          {
-                             a.Id,
+                             b.Name,
+                             b.Code,
                              a.Vt,
-                             a.Vp,
                              a.RuleType,
-                             b.Name
+                             Suggestion = c != null ? new
+                             {
+                                 c.ShoudDo,
+                                 c.ShoudNotDo,
+                                 c.Type
+                             } : null
                          })
                          .OrderBy(o => o.RuleType)
                          .GroupBy(g => new { g.Name })
