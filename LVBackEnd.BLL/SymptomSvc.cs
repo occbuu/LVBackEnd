@@ -145,11 +145,20 @@ namespace LVBackEnd.BLL
             foreach (var vt in ls)
             {
                 var sam2 = vt.Split(',');
-                var query = Check(sam, sam2);
-                if (query) lsOk.Add(vt);
+                var check = Check(sam, sam2);
+                if (check) lsOk.Add(vt);
             }
 
-            //var ls2 = _rep.Context.Rule.Se
+            var query = (from a in _rep.Context.Rule
+                         join b in _rep.Context.Disease on a.Vp equals b.Code
+                         select new
+                         {
+                             a.Id,
+                             a.Vt,
+                             a.Vp,
+                             a.RuleType,
+                             b.Name
+                         });
 
             var res = new SingleRsp
             {
