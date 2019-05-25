@@ -142,7 +142,7 @@ namespace LVBackEnd.BLL
                 Data = new
                 {
                     Symptom = lsSymptom,
-                    Diagnostic = query.ToList()
+                    Disease = query.ToList()
                 }
             };
 
