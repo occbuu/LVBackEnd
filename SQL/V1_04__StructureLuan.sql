@@ -84,7 +84,7 @@ IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME = 'Suggestion')
 CREATE TABLE [Luan].[Suggestion]
 (
 	[Id]					INT IDENTITY(1, 1) PRIMARY KEY,		
-	[DiseaseId]				[int] NULL,
+	[DiseaseCode]			varchar(50) NULL,
 	[ShoudDo]				[ntext] NULL,
 	[ShoudNotDo]			[ntext] NULL,
 	[Type]					[int] NULL,
